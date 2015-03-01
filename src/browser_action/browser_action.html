@@ -1,0 +1,46 @@
+<!doctype html>
+
+
+<style type="text/css">
+	#mainPopup { padding : 10px; height : 200px; width : 490px; font-family : Helvetica, Ubuntu, Arial, sans-serif; }
+	h1 { font-size : 2em; }
+	tr:hover { background : #F8F8F8 }
+</style>
+
+<div id="mainPopup">
+	<h3 style="margin-top: 0;">Delay for YouTube&trade;</h3>
+
+	<table>
+		<tr>
+			<th>V Parameter <a href="#" id="help"><small>(Help)</small></a></th>
+			<th>Hour</th>
+			<th>Min</th>
+			<th>Sec</th>
+			<th></th>
+		</tr>
+		<tr>
+			<td>https://www.youtube.com/watch?v=<input id="url" style="width:100px" type="text" required/></td>
+			<td><input id="hour" style="width:40px" value="0" min="0" max="23" type="number" placeholder="hour" required/></td>
+			<td><input id="min" style="width:40px" value="0" min="0" max="59" type="number" placeholder="min" required/></td>
+			<td><input id="sec" style="width:40px" value="0" min="0" max="59" type="number" placeholder="sec" required/></td>
+			<td>
+				<button id="add">Add</button>
+			</td>
+		</tr>
+	</table>
+
+	<div id="error"></div>
+	<br/>
+	<table>
+		<tr>
+			<th style="width:25px"></th>
+			<th style="width:350px">Url</th>
+			<th style="width:100px">Time</th>
+		</tr>
+		<tbody id="result"></tbody>
+	</table>
+</div>
+
+<div id="helpContainer"></div>
+
+<script type="text/javascript" src="main.js"></script>
