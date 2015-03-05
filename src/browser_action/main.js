@@ -23,7 +23,7 @@ function setError(message) {
 }
 
 function getNewHtml(obj, key) {
-    return '<tr id="tr_' + key + '"><td><button id="' + key + '">x</button></td><td>https://www.youtube.com/watch?v=' + obj['url'] + '</td><td>' + obj['hour'] + 'h' + obj['min'] + 'm' + obj['sec'] + 's</td></tr>';
+    return '<tr id="tr_' + key + '"><td><button id="' + key + '">x</button></td><td>' + obj['url'] + '</td><td>' + obj['hour'] + 'h' + obj['min'] + 'm' + obj['sec'] + 's</td></tr>';
 }
 
 function saveChanges(obj, key) {
@@ -76,7 +76,7 @@ function removeEntries() {
 var help = document.getElementById("help");
 help.onclick = function () {
     var helpContainer = document.getElementById("helpContainer");
-    helpContainer.innerHTML = '<p>https://www.youtube.com/watch?v=<strong style="font-size: 14px;">vOTURWqJyhU</strong>&list=PLdouy2YpLox4e_mLf1i</p>';
+    helpContainer.innerHTML = '<p>This app works by matching a keyword from the video title or description with the keywords entered in the form</p><p>Example: In the form add "TheResident" in the keywords field and "25" in the seconds field. Then go to <a href="https://www.youtube.com/watch?v=yZcWzcSa5Rk" target="_blank">Video 1</a> or <a href="https://www.youtube.com/watch?v=DIPnM4HiAv0" target="_blank">Video 2</a>. Notice how the videos starts 25 seconds in.</p>';
 
     return false;
 };

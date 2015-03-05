@@ -1,27 +1,27 @@
 chrome.extension.onMessage.addListener(
     function (request, sender, sendResponse) {
-        //sendResponse();
-        chrome.storage.sync.get(null, function (resp) {
-            for (var key in resp) {
-                var obj = resp[key];
-                var baseUrl = 'https://www.youtube.com/watch?';
-                var replace = sender.url.replace(baseUrl, '');
-                var queryString = QueryString(replace);
+        sendResponse();
 
-                if (queryString['v'] !== undefined && queryString['t'] === undefined) {
-                    var aUrl = baseUrl + 'v=' + obj.url;
-                    var bUrl = sender.url;
+        if (request.title !== undefined) {
+            chrome.storage.sync.get(null, function (resp) {
+                for (var key in resp) {
+                    var baseUrl = 'https://www.youtube.com/watch?';
+                    var replace = sender.url.replace(baseUrl, '');
+                    var queryString = QueryString(replace);
 
-                    if (aUrl === bUrl) {
-                        var newUrl = sender.url + '&t=' + buildTime(obj);
-                        //console.log(newUrl);
-                        chrome.tabs.update(null, {url: newUrl});
+                    if (queryString['v'] !== undefined && queryString['t'] === undefined) {
+                        var obj = resp[key];
+
+                        if (request.title.search(obj.url) !== -1 || request.description.search(obj.url) !== -1) {
+                            var newUrl = sender.url + '&t=' + buildTime(obj);
+                            chrome.tabs.update(null, {url: newUrl});
+                        }
+                    } else {
+                        //console.log('has t');
                     }
-                } else {
-                    //console.log('has t');
                 }
-            }
-        });
+            });
+        }
     });
 
 function buildTime(obj) {
