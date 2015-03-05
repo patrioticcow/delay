@@ -6,6 +6,11 @@ chrome.extension.sendMessage({}, function (response) {
 
             var title = $title.length ? $title.html() : '';
             var description = $description.length ? $description.html() : '';
+            var url = document.URL;
+
+            document.addEventListener("click", function (e) {
+                chrome.runtime.sendMessage({title: title, description: description, url: url});
+            }, true);
 
             chrome.runtime.sendMessage({title: title, description: description});
 

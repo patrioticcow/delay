@@ -1,6 +1,6 @@
 {
   "name": "Delay for YouTube TM",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "manifest_version": 2,
   "description": "de.lay 1.verb - make (someone or something) late or slow. 2.noun - a period of time by which something is late or postponed.",
   "homepage_url": "https://github.com/patrioticcow/delay",
@@ -35,7 +35,8 @@
       "js": [
         "src/inject/inject.js",
         "src/inject/jquery.min.js"
-      ]
+      ],
+      "run_at": "document_end"
     }
   ]
 }
